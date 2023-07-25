@@ -204,7 +204,7 @@ nav ul ul li a {
     display: block;
 }
 
-/* Second, Third and more Tiers	
+/* Second, Third and more Tiers
  * We move the 2nd and 3rd etc tier dropdowns to the left
  * by the amount of the width of the first tier.
 */
@@ -381,7 +381,7 @@ input.form-control.serv_bottom.text-white {
 
 /* header */
 
-header h1,
+header h1
  {
 	line-height: 0;
 }
@@ -2137,5 +2137,7 @@ h3.title {
     font-size: 30px !important;
 }
 }
-
+.footer_w3layouts_section_1its {
+	background: #10000E;
+  }
 /* -- //Responsive code -- */
