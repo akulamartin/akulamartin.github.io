@@ -390,7 +390,9 @@ header h1
     text-align: right;
 	color:#fff;
 	letter-spacing:2px;
-}
+	text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+	}
+
 .navbar-light {
     padding: 1em 2em;
     position: absolute;
