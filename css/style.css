@@ -396,6 +396,7 @@ header h1
 
 .navbar-light {
     padding: 1em 2em;
+	padding-bottom: 2em;
     position: absolute;
     z-index: 999;
     width: 70%;
