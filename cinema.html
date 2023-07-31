@@ -37,9 +37,9 @@
                     </div>
                </div>
             <header>
-	<nav class="mnu navbar-light">
+                <nav id="mnubar" class="mnu navbar-light">
             <div class="logo" id="logo">
-                <h1><a href="index.html"><img src="images/logo.png" alt="" class="img-fluid"></a></h1>
+                <h1><a href="index.html"><img id="imageshrink" src="images/logo.png" alt="" class="img-fluid"></a></h1>
             </div>
 				<label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
                 <input type="checkbox" id="drop">
@@ -186,6 +186,22 @@
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+        document.addEventListener("DOMContentLoaded", function(){
+  window.addEventListener('scroll', function() {
+      if (window.scrollY > 100) {
+        document.getElementById('mnubar').classList.add('fixed_top');
+        document.getElementById('imageshrink').classList.add('imageshrink');
+        // add padding top to show content behind navbar
+        //navbar_height = document.querySelector('.navbar-light').offsetHeight;
+        //document.body.style.paddingTop = navbar_height + 'px';
+      } else {
+        document.getElementById('mnubar').classList.remove('fixed_top');
+        document.getElementById('imageshrink').classList.remove('imageshrink');
+         // remove padding top from body
+        //document.body.style.paddingTop = '0';
+      }
+  });
+});
     </script>
 </body>
 </html>

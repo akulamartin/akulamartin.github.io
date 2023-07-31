@@ -2194,3 +2194,10 @@ body:before {
     opacity: 0.3;
     z-index: -1;
 }
+.fixed_top{
+	position: fixed;
+	top: 0px;
+}
+.imageshrink{
+	max-width: 50%;
+}
