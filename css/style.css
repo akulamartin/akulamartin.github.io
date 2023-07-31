@@ -2225,3 +2225,9 @@ body:before {
 .founder-top{
 	margin-top: 10px;
 }
+
+@media screen and (max-width: 1198px) {
+	div.slider-info{
+		display:none;
+	}
+}
