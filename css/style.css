@@ -2292,3 +2292,25 @@ body:before {
 .the_margin_left{
 	margin-left: 10px;
 }
+
+
+@media screen and (max-width: 900px) {
+	.whtap{
+		bottom: 80px;
+	}
+}
+
+@media screen and (max-width: 504px) {
+	.whtap{
+		bottom: 80px;
+	}
+}
+
+.whatsapp_martin{
+	font-size: 2em;
+}
+
+
+a.the_margin_left i.fa.fa-whatsapp{
+	font-size: 2em;
+}
