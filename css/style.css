@@ -2288,3 +2288,7 @@ body:before {
 .carousel-indicators{
 	z-index: 1;
 }
+
+.the_margin_left{
+	margin-left: 10px;
+}
