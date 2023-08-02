@@ -2300,9 +2300,9 @@ body:before {
 	}
 }
 
-@media screen and (max-width: 504px) {
+@media screen and (max-width: 898px) {
 	.whtap{
-		bottom: 80px;
+		bottom: 150px;
 	}
 }
 
