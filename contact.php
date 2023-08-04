@@ -1,41 +1,53 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Check if form fields are empty and assign data to variables
     $to = "info@lovebirds.co.ke"; // Replace with the recipient email address
-    $subject = $_POST["subject"];
-    $name = $_POST["name"];
-    $email = $_POST["email"];
-    $message = $_POST["message"];
+    $name = !empty($_POST['name']) ? $_POST['name'] : '';
+    $email = !empty($_POST['email']) ? $_POST['email'] : '';
+    $subject = !empty($_POST['subject']) ? $_POST['subject'] : '';
+    $message = !empty($_POST['message']) ? $_POST['message'] : '';
 
-    // Checkboxes
+
+    // Check and add selected checkboxes to the message body
     $checkboxes = array(
-        "cinematography" => "I need Cinematography",
-        "videoediting" => "I need Video Editing",
-        "customizedcakes" => "I need Customized Cakes",
-        "limousineservices" => "I need Limousine Services",
-        "indooroutdoordecorations" => "I need Indoor / Outdoor Decorations",
-        "fashiondesign" => "I need Fashion Design",
-        "soundmusicandentertainment" => "I need Sound Music and Entertainment",
-        "makeupservices" => "I need Make-Up Services",
-        "cateringservices" => "I need Catering Services",
+        'cinematography' => 'Cinematography',
+        'videoediting' => 'Video Editing',
+        'customizedcakes' => 'Customized Cakes',
+        'limousineservices' => 'Limousine Services',
+        'indooroutdoordecorations' => 'Indoor / Outdoor Decorations',
+        'fashiondesign' => 'Fashion Design',
+        'soundmusicandentertainment' => 'Sound Music and Entertainment',
+        'makeupservices' => 'Make-Up Services',
+        'cateringservices' => 'Catering Services',
     );
 
-    $selected_checkboxes = array();
+    // Get the selected checkboxes and create a list
+    $selectedCheckboxes = array();
     foreach ($checkboxes as $key => $label) {
         if (!empty($_POST[$key])) {
-            $selected_checkboxes[] = $label;
+            $selectedCheckboxes[] = $label;
         }
     }
 
-    // Combine selected checkboxes into a single string
-    $checkboxes_message = implode("\n", $selected_checkboxes);
+    // If there are selected checkboxes, create the list
+    if (!empty($selectedCheckboxes)) {
+        $body .= "<h1>Selected Services:</h1>\n";
+        $body .= "<ul>\n";
+        foreach ($selectedCheckboxes as $checkbox) {
+            $body .= "<li>$checkbox</li>\n";
+        }
+        $body .= "</ul>\n";
+    }
+    $body .= "<h1>Client's Message:</h1>\n";
+    $body .="<br>$message\n\n";
 
-    // Include the checkboxes message in the email body
-    $email_body = "Name: $name\nEmail: $email\n\n$checkboxes_message\n\n$message";
+    //echo $body;
 
     // Send the email
-    $headers = "From: $email";
-    mail($to, $subject, $email_body, $headers);
-
+     $headers = "MIME-Version: 1.0" . "\r\n";
+     $headers .= "Content-type: text/html; charset=iso-8859-1" . "\r\n";
+     $headers .= "From: $email";
+     mail($to, $subject, $body, $headers);
     // Redirect to a thank-you page after successful submission
     header("Location: thank_you_page.html");
     exit();
